@@ -6,11 +6,13 @@ public class StringCalculator {
             return 0;
         }
         if(numbers.contains(",")) {
-            String[] array = numbers.split(",");
-            return Integer.parseInt(array[0]) + Integer.parseInt(array[1]);
+            int result=0;
+            String[] array=numbers.split(",");
+            for(String num:array) {
+                result+=Integer.parseInt(num);
+            }
+            return result;
         }
         return Integer.parseInt(numbers);
-
-
     }
 }
