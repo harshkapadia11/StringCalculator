@@ -5,9 +5,19 @@ public class StringCalculator {
         if(numbers.equals("")){
             return 0;
         }
-        if(numbers.contains(",")) {
+        if(numbers.length()>0) {
             int result=0;
-            String[] array=numbers.split("[,\n;]");
+            String var;
+            if (numbers.startsWith("//"))
+            {
+                var=numbers.substring(4);
+
+            }
+            else
+            {
+                var=numbers;
+            }
+            String[] array=var.split("[,\n;#*%]");
             for(String num:array) {
                 result+=Integer.parseInt(num);
             }
