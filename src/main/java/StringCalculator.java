@@ -15,6 +15,7 @@ public class StringCalculator {
                 var = numbers.substring(4);
 
             } else {
+
                 var = numbers;
             }
             String[] array = var.split("[,\n;#*%]");
