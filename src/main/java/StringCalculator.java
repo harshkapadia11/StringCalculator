@@ -1,7 +1,8 @@
 public class StringCalculator {
-
+    static int count = 0;
     public int add(String numbers)
     {
+        count++;
         if(numbers.equals("")){
             return 0;
         }
@@ -35,6 +36,12 @@ public class StringCalculator {
 
         return Integer.parseInt(numbers);
 
+
+    }
+    public int getCalledCount()
+    {
+
+        return count;
     }
 }
 class MyException extends Exception
