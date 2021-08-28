@@ -18,5 +18,8 @@ public class StringCalculatorTest {
         assertEquals(8,calculator.getCalledCount());
         assertEquals(11,calculator.add("//;\n1002;11"));
         assertEquals(6,calculator.add("//[***]\n1***2***3"));
+        assertEquals(6,calculator.add("//[*][%]\n1*2%3"));
+        assertEquals(6,calculator.add("//[**][%%]\n1**2%%3"));
+
     }
 }

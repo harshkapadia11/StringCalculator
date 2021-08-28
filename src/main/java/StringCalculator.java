@@ -1,3 +1,5 @@
+
+
 public class StringCalculator {
     static int count = 0;
 
@@ -15,23 +17,44 @@ public class StringCalculator {
                 var = numbers.substring(4);
                 if (numbers.contains("[")) {
 
-                    int first = numbers.indexOf("[");
-                    int last = numbers.lastIndexOf("]");
-                    String dim=numbers.substring(first+1,last);
-                    String value=numbers.substring(last+2);
-                    value=value.replace(dim,",");
-                    String[] array=value.split(",");
-                    for(String num:array)
-                    {
-                        int no = Integer.parseInt(num.trim());
-                        result +=no;
+                    if (numbers.indexOf("[") == numbers.lastIndexOf("[")) {
+
+                        int first = numbers.indexOf("[");
+                        int last = numbers.lastIndexOf("]");
+                        String dim = numbers.substring(first + 1, last);
+                        String value = numbers.substring(last + 2);
+                        value = value.replace(dim, ",");
+                        String[] array = value.split(",");
+                        for (String num : array) {
+                            int no = Integer.parseInt(num.trim());
+                            result += no;
+                        }
+                        return result;
+                    } else {
+                        int first_opening = numbers.indexOf("[");
+                        int first_closing = numbers.indexOf("]");
+                        int last_opening = numbers.lastIndexOf("[");
+                        int last_closing = numbers.lastIndexOf("]");
+
+                        String dim1 = numbers.substring(first_opening + 1, first_closing);
+                        String dim2 = numbers.substring(last_opening + 1, last_closing);
+                        String value = numbers.substring(last_closing + 2);
+                        value = value.replace(dim1, ",");
+                        value = value.replace(dim2, ",");
+                        String[] array = value.split(",");
+                        for (String num : array) {
+                            int no = Integer.parseInt(num.trim());
+                            result += no;
+
+                        }
+                        return result;
                     }
-                    return result;
                 }
             } else {
 
                 var = numbers;
             }
+
             String[] array = var.split("[,\n;#*%]");
 
             for (String num : array) {
