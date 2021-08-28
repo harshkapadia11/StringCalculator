@@ -16,5 +16,6 @@ public class StringCalculatorTest {
         assertEquals(0,calculator.add("//;\n-3;2"));
         assertEquals(0,calculator.add("//;\n-3;2;-1"));
         assertEquals(8,calculator.getCalledCount());
+        assertEquals(11,calculator.add("//;\n1002;11"));
     }
 }

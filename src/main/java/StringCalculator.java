@@ -1,9 +1,10 @@
 public class StringCalculator {
     static int count = 0;
-    public int add(String numbers)
-    {
+
+    public int add(String numbers) {
         count++;
-        if(numbers.equals("")){
+
+        if (numbers.equals("")) {
             return 0;
         }
 
@@ -21,39 +22,34 @@ public class StringCalculator {
             for (String num : array) {
                 int no = Integer.parseInt(num.trim());
                 try {
-                    if(no<0)
-                    {
+                    if (no < 0) {
                         throw new MyException(array);
                     }
-                }
-                catch(MyException m) {
+                } catch (MyException m) {
                     return 0;
                 }
-                result += Integer.parseInt(num);
+                if (no <= 1000) {
+                    result += no;
+                }
             }
             return result;
         }
-
         return Integer.parseInt(numbers);
-
-
     }
-    public int getCalledCount()
-    {
+    public int getCalledCount() {
 
         return count;
     }
 }
-class MyException extends Exception
-{
-    public MyException(String[] s)
-    {
+
+class MyException extends Exception {
+    public MyException(String[] s) {
         System.out.println("Negatives not allowed");
-        for (String num:s) {
-            if (Integer.parseInt(num)<0) {
+        for (String num : s) {
+
+            if (Integer.parseInt(num) < 0) {
                 System.out.println(num);
             }
         }
-
     }
 }
