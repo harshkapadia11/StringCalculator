@@ -5,24 +5,45 @@ public class StringCalculator {
         if(numbers.equals("")){
             return 0;
         }
-        if(numbers.length()>0) {
-            int result=0;
-            String var;
-            if (numbers.startsWith("//"))
-            {
-                var=numbers.substring(4);
 
+        if (numbers.length() > 0) {
+            int result = 0;
+            String var;
+            if (numbers.startsWith("//")) {
+                var = numbers.substring(4);
+
+            } else {
+                var = numbers;
             }
-            else
-            {
-                var=numbers;
-            }
-            String[] array=var.split("[,\n;#*%]");
-            for(String num:array) {
-                result+=Integer.parseInt(num);
+            String[] array = var.split("[,\n;#*%]");
+
+            for (String num : array) {
+                int no = Integer.parseInt(num.trim());
+                try {
+                    if(no<0)
+                    {
+                        throw new MyException(num);
+                    }
+                }
+                catch(MyException m) {
+                    return 0;
+                }
+                result += Integer.parseInt(num);
             }
             return result;
         }
+
         return Integer.parseInt(numbers);
+
+    }
+}
+class MyException extends Exception
+{
+    public MyException(String s)
+    {
+        System.out.println("Negatives not allowed");
+        System.out.println(s);
+
+
     }
 }
