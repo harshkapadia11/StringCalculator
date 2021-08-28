@@ -22,7 +22,7 @@ public class StringCalculator {
                 try {
                     if(no<0)
                     {
-                        throw new MyException(num);
+                        throw new MyException(array);
                     }
                 }
                 catch(MyException m) {
@@ -39,11 +39,14 @@ public class StringCalculator {
 }
 class MyException extends Exception
 {
-    public MyException(String s)
+    public MyException(String[] s)
     {
         System.out.println("Negatives not allowed");
-        System.out.println(s);
-
+        for (String num:s) {
+            if (Integer.parseInt(num)<0) {
+                System.out.println(num);
+            }
+        }
 
     }
 }

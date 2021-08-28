@@ -14,5 +14,6 @@ public class StringCalculatorTest {
         assertEquals(1+2+3,calculator.add("1\n2,3"));
         assertEquals(1+2,calculator.add("//;\n1;2"));
         assertEquals(0,calculator.add("//;\n-3;2"));
+        assertEquals(0,calculator.add("//;\n-3;2;-1"));
     }
 }
